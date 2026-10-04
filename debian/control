@@ -1,0 +1,9 @@
+Package: vscode-ext-cli
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Sat Naing Tun <satnaingtun.snt@gmail.com>
+Depends: python3, code
+Description: CLI helper tool to install and uninstall VS Code extensions easily.
+ A lightweight wrapper around the VS Code CLI tool for streamlined extension management.
