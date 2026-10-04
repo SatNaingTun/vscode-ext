@@ -34,8 +34,8 @@ jobs:
           mkdir -p build/usr/bin
           mkdir -p build/DEBIAN
 
-          # Copy script and set permissions
-          cp ext build/usr/bin/ext
+          # Copy script and set permissions (CHANGE ext to ext.py here)
+          cp ext.py build/usr/bin/ext
           chmod +x build/usr/bin/ext
 
           # Copy control file and inject dynamic version
