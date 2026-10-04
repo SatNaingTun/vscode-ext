@@ -41,6 +41,10 @@ jobs:
           # Copy control file and inject dynamic version
           cp debian/control build/DEBIAN/control
           sed -i "s/Version: 1.0.0/Version: ${{ steps.version.outputs.version }}/g" build/DEBIAN/control
+      
+      - name: Ensure control file has a trailing newline
+        run: |
+          echo "" >> debian/control
 
       - name: Build Debian package
         run: |
@@ -59,8 +63,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: latest
-          name: "Release ${{ steps.version.outputs.tag }}"
-          body: "Automated build compiled from commit `$(git rev-parse --short HEAD)`."
+          name: "Release ${{ steps.version.outputs.version }}"
+          body: "Automated Linux build compiled from commit `$(git rev-parse --short HEAD)`."
           files: ext-cli_*_all.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
